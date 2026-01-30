@@ -1,0 +1,91 @@
+.title1 {
+    font-size: $fz_9;
+    font-weight: bold;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    
+    @include mobile {
+        font-size: $fz_8;
+    }
+    .tit_ico {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        @include mobile {
+            width: 22px;
+            height: 22px;
+            background-size: contain;
+            margin-right: 8px;
+        }
+        &.ty_monitoring {
+            background-image: url(../images/tit1_ico_monitoring.svg);
+        }
+        &.ty_facility {
+            background-image: url(../images/tit1_ico_facility.svg);
+        }
+        &.ty_work {
+            background-image: url(../images/tit1_ico_work.svg);
+        }
+        &.ty_emergency {
+            background-image: url(../images/tit1_ico_emergency.svg);
+        }
+        &.ty_account {
+            width: 51px;
+            background-image: url(../images/tit1_ico_worker.svg);
+            @include mobile {
+                width: 35px;
+            }
+        }
+        &.ty_equipment {
+            width: 35px;
+            background-image: url(../images/tit1_ico_equipment.svg);
+            @include mobile {
+                width: 24px;
+            }
+        }
+        &.ty_statistics {
+            background-image: url(../images/tit1_ico_statistics.svg);
+        }
+        &.ty_notice {
+            background-image: url(../images/tit1_ico_notice.svg);
+        }
+    }
+}
+.title2 {
+    font-size: $fz_8;
+    //font-weight: bold;
+    @include mobile {
+        font-size: $fz_7;
+    }
+}
+.title3 {
+    display: flex;
+    align-items: center;
+    font-size: $fz_7;
+    font-weight: 500;
+    .tit_ico {
+        width: 25px;
+        height: 25px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        &.ty_arrow {
+            background-image: url(../images/tit_ico_arrow.svg);
+        }
+    }
+}
+
+.tit_ico {
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &.ty_facility {
+        background-image: url(../images/icon_FacilityManagement_blue.svg);
+    }
+    &.ty_emergency {
+        background-image: url(../images/icon_EmergencyManagement_blue.svg);
+    }
+}

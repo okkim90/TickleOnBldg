@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TickleOn BLDG</title>
+    <!--[D] 공통척용 js&css-->
+    <link rel="stylesheet" href="./assets/css/common.min.css">
+    <script type="text/javascript" src="./assets/js/common.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header" class="header">
+            <h1 class="logo"><a href=""><img src="../assets/images/logo.png" alt="TickleOn"></a> </h1>
+            <button type="button" class="btn_nav"></button>
+            <a href="" class="hd_user_btn">
+                <span class="user_name">이수호</span> 님
+            </a>     
+        </header>
+        <aside class="nav fixed">
+            <div class="nav_top">
+                <a href="" class="nav_top_logo"></a>
+                <button type="button" class="nav_close" aria-label="close nav"></button>
+            </div>
+            <nav class="nav_wrap">
+                <ul class="nav_list dep1">
+                    <!--[D] 메뉴 활성화 'on' class -->
+                    <li class="nav_dep1 on">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_monitoring"></i>
+                            <span class="txt">모니터링</span>
+                        </a>
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_facility"></i>
+                            <span class="txt">시설관리</span>
+                        </a>
+                    </li>   
+                    <li class="nav_dep1 ">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_emergency"></i>
+                            <span class="txt">긴급관리</span>
+                            <span class="tag_new">N</span>
+                        </a>    
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_statistic"></i>
+                            <span class="txt">통계</span>
+                        </a>     
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_cert"></i>
+                            <span class="txt">보고서</span>
+                        </a>
+                    </li>               
+                </ul>
+                <div class="pl20 pr20 mt30">
+                    <button type="button" class="f_btn ty_small _bg w100">로그아웃</button>
+                </div>
+                
+            </nav>
+        </aside>
+        <main id="container">
+            <div class="hd_company">
+                <div class="hd_company_item dep1">회사명</div>
+                <div class="hd_company_item select-box ty_mid ">
+                    <input type="text" class="select-input" value="서울지점" placeholder="매체를 선택해주세요" readonly>
+                    <div class="options">
+                        <ul>
+                            <li data-value="1" class="option">서울지점</li>
+                            <li data-value="2" class="option">경기지점</li>
+                            <li data-value="3" class="option">강원지점</li>
+                        </ul>
+                        <button type="button" class="f_btn ty_small _grey w100 mt10" onclick="event.stopPropagation();">지점 관리</button>
+                    </div>
+                </div>
+            </div>
+            <div class="contents">
+                <section class="sec">
+                    <div class="sub_tit">
+                        <h2 class="title1"><i class="tit_ico ty_monitoring"></i>관리자 메뉴</h2>
+                    </div>
+                    <ul class="admin_menu">
+                        <li class="admin_menu_item ">
+                            <a href="" class="admin_menu_btn">
+                                <div class="ico_box ty_monitoring">
+                                    <img src="./assets/images/tit1_ico_monitoring.svg" alt="">
+                                </div>
+                                <p class="tit">모니터링</p>
+                            </a>
+                        </li>
+                        <li class="admin_menu_item">
+                            <a href="" class="admin_menu_btn">
+                                <div class="ico_box">
+                                    <img src="./assets/images/tit1_ico_facility.svg" alt="">
+                                </div>
+                                <p class="tit">시설관리</p>
+                            </a>
+                        </li>
+                        <li class="admin_menu_item">
+                            <a href="" class="admin_menu_btn">
+                                <div class="ico_box">
+                                    <img src="./assets/images/tit1_ico_emergency.svg" alt="">
+                                </div>
+                                <p class="tit">긴급관리</p>
+                            </a>
+                        </li>
+                        <li class="admin_menu_item">
+                            <a href="" class="admin_menu_btn">
+                                <div class="ico_box">
+                                    <img src="./assets/images/tit1_ico_emergency_red.svg" alt="">
+                                </div>
+                                <p class="tit">긴급관리등록</p>
+                            </a>
+                        </li>
+                        <li class="admin_menu_item">
+                            <a href="" class="admin_menu_btn">
+                                <div class="ico_box">
+                                    <img src="./assets/images/tit1_ico_statistics.svg" alt="">
+                                </div>
+                                <p class="tit">통계</p>
+                            </a>
+                        </li>
+                        <li class="admin_menu_item">
+                            <a href="" class="admin_menu_btn">
+                                <div class="ico_box">
+                                    <img src="./assets/images/icon_Cert_blue.svg" alt="">
+                                </div>
+                                <p class="tit">보고서</p>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+.footer {
+    &_copy {
+        background-color: $c_bg;
+        text-align: center;
+        color: $c_font2;
+        font-size: 13px;
+        line-height: 30px;
+    }
+}

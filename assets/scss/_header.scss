@@ -1,0 +1,48 @@
+.header {
+    background-color: $c_key;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    .logo {
+        
+        a {
+            display: flex;
+            align-items: center;
+            height: 80px;
+        }
+        img {
+            height: 26px;
+        }
+    }
+    .btn_nav {
+        width: 64px;
+        height: 80px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-image: url(../images/btn_nav.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .hd_user_btn {
+        position: absolute;
+        right: 20px;
+        top: 0;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        color: $c_font2;
+        gap: 4px;
+        .user_name {
+            color: #fff;
+        }
+    }
+}

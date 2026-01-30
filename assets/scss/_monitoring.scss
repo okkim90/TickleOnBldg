@@ -1,0 +1,137 @@
+.monitoring_status {
+    display: flex;
+    gap: 12px;
+    &_part {
+        flex: calc(50% - 6px);
+        background-color: color.scale($c_key3, $lightness:90%);
+        padding: 15px;
+        border-radius: 10px;
+        .part_tit {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    }
+    .status_list li {
+        display: flex;
+        justify-content: space-between;
+        gap: 4px;
+        line-height: 1.2;
+        & + li {
+            margin-top: 10px;
+        }
+        font-weight: 500;
+        .list_tit {
+            font-weight: 500;
+            
+        }
+        div {
+            flex-shrink: 0;
+        }
+        span {
+            font-weight: 600;
+        }
+    }
+}
+
+.tab_list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto;
+    .tab_btn {
+        height: 40px;
+        border-radius: 20px;
+        font-size: 15px;
+        font-weight: 500;
+        background-color: $c_grey3;
+        padding: 0 14px;
+        flex-shrink: 0;
+        white-space: nowrap;
+        &.on {
+            font-weight: bold;
+            background-color: $c_key3;
+            color: #fff;
+        }
+    }
+}
+
+.monitoring_card {
+    &_wrap {
+        
+        @include flex_col(2, 12px, 12px);
+       
+        @media (max-width: 580px) {
+            @include flex_col(1, 12px, 12px);
+        }
+    }
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 12px;
+    //min-width: 200px;
+    
+    &_top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        
+    }
+    &_tit {
+        min-width: 0;
+        display: flex;
+        gap: 6px;
+        align-items: flex-end;
+        .tit {
+            display: block;
+            font-size: 16px;
+            line-height: 1.2;
+            @include text-hidden-single;
+        }
+        .type {
+            font-size: 12px;
+            line-height: 1.2;
+        }
+    }
+    &_status {
+        flex-shrink: 0;
+        padding: 0 10px;
+        line-height: 22px;
+        font-size: 12px;
+        color: #fff;
+        border-radius: 4px;
+        &._complete {
+            background-color: $c_green;
+        }
+        &._incomplete {
+            background-color: $c_red2;
+        }
+    }
+    &_cont {
+        margin-top: 8px;
+        padding-top: 10px;
+        border-top: 1px solid $c_line;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        //max-height: 108px;
+
+        .work_item {
+            display: block;
+            
+            padding: 0 10px;
+            font-size: 12px;
+            line-height: 2;
+            border-radius: 4px;
+            @include text-hidden-single;
+            background-color: $c_bg;
+            border: 1px solid $c_line;
+            
+
+            &._complete {
+                background-color: lighten($c_key3, 48%) ;
+            }
+            &._additional {
+                background-color: rgb(255, 252, 186)
+            }
+        }
+    }
+}

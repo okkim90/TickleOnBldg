@@ -1,0 +1,32 @@
+.admin_menu {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    &_item {
+        flex: calc(50% - 10px)
+    }
+    &_btn {
+        display: block;
+        background-color: #fff;
+        padding: 20px 0;
+        border-radius: 12px;
+        box-shadow: 0 5px 6px rgba(#000, 0.1);
+        text-align: center;
+        .ico_box {
+            margin-bottom: 12px;
+            &.ty_monitoring {
+                padding-top: 6px;
+                img {
+                    height: 36px;
+                }
+            }
+            img {
+                height: 42px;
+            }
+        }
+        .tit {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}

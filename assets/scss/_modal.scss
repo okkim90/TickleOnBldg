@@ -1,0 +1,153 @@
+.modal {
+    position: fixed;
+    
+    top: 0;
+    width: 100%;
+    
+    height: 100%;
+    z-index: 10000;
+    background-color: rgba(#000,.6);
+    padding: 20px;
+    
+    box-sizing: border-box;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .1s ease-in-out;
+    &.on {
+        visibility: visible;
+        opacity: 1;
+    }
+    &_inner {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    &_cont {
+        position: relative;
+        background-color: #fff;
+        border-radius: 20px;
+        width: 100%;
+        
+       
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        max-height: 100%;
+        // &.ty_mid {
+        //     width: 600px;
+        // }
+        &.ty_small {
+            max-width: 500px;
+        }
+        &.ty_mid {
+            max-width: 720px;
+        }
+        &.ty_big {
+            max-width: 1340px;
+        }
+        
+        
+        box-shadow: 3px 8px 20px rgba(#000,.05);
+
+        @at-root .mobile_alert & {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &_top {
+       
+        padding: 30px 30px 16px;
+        padding-right: 60px;
+        border-bottom: 1px solid $c_line;
+        @include mobile { 
+            padding: 20px 20px 16px;
+            padding-right: 50px;
+        }
+        .desc {
+            margin-top: 16px;
+        }
+    }
+    &_tit {
+        font-size: 25px;
+        font-weight: 500;
+        
+        @include mobile {
+            font-size: 20px;
+        }
+    }
+    &_close_btn {
+        position: absolute;
+        right: 20px;
+        top: 28px;
+        width: 40px;
+        height: 40px;
+        margin-left: auto;
+        background-image: url(../images/ico_close2.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        border-radius: 8px;
+        flex-shrink: 0;
+        align-self: flex-start;
+        @include mobile {
+            top: 15px;
+            right: 10px;
+        }
+       
+    }
+    &_contents {
+        padding: 30px ;
+        overflow-y: auto;
+        //max-height: calc(100dvh - 100px);
+        &.no_ov {
+            overflow-y: visible;
+        }
+        &.ty2 {
+            padding: 16px 30px;
+            @include mobile { 
+                padding: 16px 20px;
+            }
+        }
+        &.ty3 {
+            padding: 0 30px 16px;
+            @include mobile { 
+                padding: 0 20px 20px;
+            }
+        }
+        @include mobile {
+            padding: 20px;
+        }
+    }
+    &_bot {
+        display: flex;
+        justify-content: flex-end;
+        column-gap: 12px;
+        padding: 16px 30px;
+        border-top: 1px solid $c_line;
+        @include mobile { 
+            padding: 16px 20px;
+        }
+    }
+
+    .commute_qr {
+        display: flex;
+        gap: 32px;
+        @include mobile {
+            flex-direction: column;
+        }
+        .qr_wrap {
+            padding: 16px;
+            background-color: $c_bg;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &_sec {
+            flex: 1;
+        }
+    }
+}

@@ -1,0 +1,379 @@
+.btn_tab {
+    padding: 0 20px;
+    height: 48px;
+    line-height: 48px;
+    border-radius: 15px;
+    font-weight: 500;
+    font-size: 14px;
+    &.on {
+        background-color: $c_key;
+    }
+    &:hover {
+        background-color: $c_bg;
+    }
+    &2 {
+        font-size: $fz_8;
+        font-weight: bold;
+        color: $c_placeholder;
+        &.on {
+            color: $c_font;
+        }
+    }
+}
+
+.btn_detail {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background: url(../images/btn_detail.svg) no-repeat center center;
+}
+
+
+
+.f_btn {
+    text-align: center;
+    display: inline-flex;
+    vertical-align: top;
+    justify-content: center;
+    align-items: center;
+    &.disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: 0.6;
+    }
+    &.ty_small {
+        height: 34px;
+        //line-height: 31px;
+        padding: 0 10px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    &.ty_mid {
+        height: 40px;
+        padding: 0 15px;
+        border-radius: 7px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    &.ty_big {
+        height: 50px;
+        padding: 0 15px;
+        border-radius: 7px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    &.ty_xl {
+        height: 60px;
+        padding: 0 15px;
+        border-radius: 7px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    &._og {
+        background-color: $c_key3;
+        color: #fff;
+    }
+    &._key {
+        background-color: $c_key;
+        color: #fff;
+    }
+    &._l_blue {
+        background-color: $c_bg2;
+        color: $c_font2;
+    }
+    
+    &._blue {
+        background-color: $c_key;
+        color: #fff;
+    }
+    &._blue2 {
+        background-color: color.scale($c_key3, $lightness:94%);
+        border: 1px solid $c_key3;
+        color: $c_key3;
+    }
+
+    &._grey {
+        background-color: $c_grey;
+        color: #fff;
+        
+       
+        &.disabled {
+            color: lighten($c_grey2, 40%);
+        }
+    }
+    
+    &._grey2 {
+        background-color: $c_grey2;
+        color: #fff;
+        
+       
+        &.disabled {
+            color: lighten($c_grey2, 40%);
+        }
+    }
+    &._bg {
+        background-color: $c_bg;
+        color: $c_font2;
+        
+        &.disabled {
+            color: lighten($c_grey2, 40%);
+        }
+    }
+    &._red {
+        background-color: $c_red2;
+        color: #fff;
+       
+    }
+    &._line {
+        border: 1px solid $c_line2;
+        background-color: #fff;
+        
+        &.disabled {
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.5;
+            background-color: $c_line2;
+        }
+    }
+    &._line2 {
+        border: 1px solid $c_grey;
+        background-color: #fff;
+       
+        &.disabled {
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.5;
+            background-color: $c_line2;
+        }
+    }
+    &._line3 {
+        border: 1px solid $c_line2;
+        background-color: $c_bg;
+       
+        &.disabled {
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.5;
+            background-color: $c_line2;
+        }
+    }
+
+    &._ico {
+        column-gap: 8px;
+        &::before {
+            content: '';
+            width: 25px;
+            height: 25px;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        &._add {
+            &::before {
+                width: 16px;
+                height: 16px;
+                background-image: url(../images/ico_add.svg);
+            }
+        }
+        &._upload {
+            &::before {
+                width: 24px;
+                height: 24px;
+                background-image: url(../images/ico_upload.svg);
+                background-size: contain;
+            }
+        }
+        &._search {
+            &::before {
+                width: 24px;
+                height: 24px;
+                background-image: url(../images/ico_search.svg);
+            }
+        }
+        &._print {
+            &::before {
+                width: 16px;
+                height: 16px;
+                background-image: url(../images/ico_pring.svg);
+            }
+        }
+        &._down {
+            &::before {
+                width: 15px;
+                height: 16px;
+                background-image: url(../images/ico_down2.svg);
+            }
+        }
+        &._mView {
+            &::before {
+                width: 16px;
+                height: 16px;
+                background-image: url(../images/ico_mView.svg);
+            }
+        }
+        &._reset {
+            &::before {
+                width: 16px;
+                height: 16px;
+                background-image: url(../images/ico_reset2.svg);
+            }
+        }
+        &._qr {
+            &::before {
+                width: 24px;
+                height: 24px;
+                background-image: url(../images/ico_qr.svg);
+            }
+        }
+        &._excel {
+            &::before {
+                width: 24px;
+                height: 25px;
+                background-image: url(../images/ico_excel.svg);
+            }
+        }
+    }
+    &._ico_b {
+        column-gap: 4px;
+        &::after {
+            content: '';
+            width: 25px;
+            height: 25px;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        &._reset2 { 
+            &::after {
+                
+                background: url(../images/ico_reset.svg) center center no-repeat;
+            }
+            
+        }
+    }
+}
+
+.chk_btn {
+    position: relative;
+    cursor: pointer;
+    .f_btn {
+        background-color: $c_bg;
+        color: $c_grey;
+        transition: background-color .1s ease-in-out;
+        // &:hover {
+        //     background-color: darken($c_disabled_bg,10%) ;
+        // }
+    }
+  
+    .inp_hidden {
+        display: none;
+        &:checked ~ .f_btn {
+            @at-root .chk_set & {
+                background-color: #E5EFFD;    
+                color: $c_key3;
+            }
+            // @at-root .chk_set._red & {
+            //     background-color: #FFE9E9;    
+            //     color: $c_red2;
+            // }
+            // @at-root .chk_set._yellow & {
+            //     background-color: #FFF8EB;    
+            //     color: $c_yellow;
+            // }
+        }
+    }
+    
+}
+ 
+
+.btn_reset {
+    width: 30px;
+    height: 30px;
+    background: url(../images/ico_reset.svg) center center no-repeat;
+}
+
+.btn_ico {
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 8px;
+    flex-shrink: 0;
+    vertical-align: middle;
+    &._srch {
+        background-image: url(../images/ico_search.svg);
+        border: 1px solid $c_line2;
+        background-color: #fff;
+       
+    }
+    &._add {
+        background-image: url(../images/ico_add.svg);
+        background-color: $c_key;
+       
+    }
+    &._edit {
+        background-image: url(../images/ico_edit.svg);
+        
+        &.on {
+            background-color: $c_bg;
+        }
+    }
+    &._del {
+        background-image: url(../images/ico_del.svg);
+       
+        &.on {
+            background-color: $c_red3;
+        }
+    }
+    &._drag {
+        background-image: url(../images/ico_drag.svg);
+        opacity: 0.6;
+        cursor: move;
+       
+    }
+    &._qr {
+        background-color: #fff;
+        background-image: url(../images/ico_qr.svg);
+        
+        border: 1px solid $c_line2;
+        
+    }
+    &._back {
+        background-color: #E2EDFF;
+        background-image: url(../images/arrow_back_blue.svg);
+        
+    }
+}
+
+.btn_tdu {
+    text-decoration: underline;
+    font-size: $fz_4;
+}
+.btn_link {
+    text-decoration: underline;
+    color: $c_key;
+}
+
+.f_switch {
+    border-radius: 7px;
+    border: 1px solid $c_key;
+    height: 40px;
+    display: inline-flex;
+    overflow: hidden;
+    
+    &_btn {
+        height: 100%;    
+        text-align: center;
+        padding: 0 12px;
+        color: $c_key;
+        font-size: $fz_4;
+        font-weight: 500;
+        &.on {
+            background-color: lighten($c_key, 50%) ;
+        }
+        & + & {
+            border-left: 1px solid $c_key;
+        }
+    }
+}

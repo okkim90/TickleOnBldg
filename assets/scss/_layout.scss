@@ -1,0 +1,77 @@
+
+#wrap {
+    padding-top: 80px;
+}
+#container {
+    padding-bottom: 30px;
+}
+.contents {
+    padding: 15px;
+    padding-top: 20px;
+}
+.inner {
+    padding: 0 15px;
+}
+
+.sec {
+    & + & {
+        margin-top: 20px;
+    }
+}
+.hd_company {
+    display: flex;
+    column-gap: 15px;
+    margin-left: auto;
+    padding: 15px;
+    background-color: color.scale($c_bg2, $lightness:-3%);
+    &_item {
+        width: 197px;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 7px;
+        color: $c_font2;
+        &.select-box {
+            //border: none;
+            color: $c_font2;
+            input {
+                color: $c_font2;
+            }
+        }
+        &.dep1 {
+            padding: 0 15px;
+            font-size: $fz_4;
+            @include text-hidden-single;
+            display: flex;
+            align-items: center;
+            &::before {
+                content: '';
+                width: 30px;
+                height: 30px;
+                background-image: url(../images/ico_home.svg);
+                background-repeat: no-repeat;
+                background-position: center center;
+
+            }
+        }
+    }
+}
+
+.sub_tit {
+    margin-bottom: 20px;
+}
+
+.bd_box {
+    border: 1px solid $c_line;
+    &.ty_small {
+        padding: 15px;
+        border-radius: 8px;
+    }
+    &.ty_big {
+        padding: 32px;
+        border-radius: 8px;
+        @include mobile {
+            padding: 16px;
+        }
+    }
+}
+

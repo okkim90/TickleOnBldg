@@ -38,13 +38,13 @@
     
     &:focus {
         border-color: $c_key3;
-        background-color: color.scale($c_key, $lightness: 96%);
+        background-color: color.scale($c_key3, $lightness: 96%);
     }
     &.error {
         border-color: $c_red2;
     }
     &:read-only {
-        background-color: color.scale($c_key, $lightness: 96%);
+        background-color: color.scale($c_key3, $lightness: 96%);
     }
     &.ty_fit {
         width: 100%;
@@ -147,6 +147,13 @@
         &._blue {
             background-image: url(../images/ico_date_blue.svg);
         }
+        &.no_ico {
+            padding-left: 10px;
+            background: none;
+            text-align: center;
+            max-width: none;
+            min-width: 120px;
+        }
     }
 
     &_del {
@@ -195,10 +202,8 @@
         }
     }
 }
-.ico_required {
-    font-style: normal;
-    color: $c_red;
-}
+
+
 .srch_box {
     display: flex;
     align-items: center;
@@ -717,7 +722,7 @@
 
 
     &_txt {
-        font-size: 16px;
+        font-size: 15px;
         color: $c_grey2;
         font-weight: 600;
     }
@@ -728,3 +733,6 @@
         flex-shrink: 0;
     }
 }
+
+
+

@@ -17,6 +17,7 @@ $colors: (
     _key: #1E2D57,
     _key2: #011fb7,
     _key3: #0c59d8,
+    _key4: #1814F3,
     
     _line: #F1F1F1,
     _line2: #e4e4e4,
@@ -52,6 +53,7 @@ $colors: (
 $c_key : map-get($colors, _key);
 $c_key2 : map-get($colors, _key2);
 $c_key3 : map-get($colors, _key3);
+$c_key4 : map-get($colors, _key4);
 
 $c_line : map-get($colors, _line);
 $c_line2 : map-get($colors, _line2);
@@ -320,6 +322,9 @@ $inner: 1280px;
             flex: none;
         }
     }
+}
+.flex_1 {
+    flex: 1;
 }
 .shrink0 {
     flex-shrink: 0;

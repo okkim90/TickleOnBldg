@@ -234,6 +234,19 @@
                 background-image: url(../images/ico_excel.svg);
             }
         }
+        &._alert {
+            &::before {
+                content: '!';
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                background-color: $c_red;
+                color: #fff;
+                font-size: 12px;
+                line-height: 18px;
+                font-weight: bold;
+            }
+        }
     }
     &._ico_b {
         column-gap: 4px;
@@ -357,7 +370,7 @@
 
 .f_switch {
     border-radius: 7px;
-    border: 1px solid $c_key;
+    border: 1px solid $c_key3;
     height: 40px;
     display: inline-flex;
     overflow: hidden;
@@ -366,14 +379,37 @@
         height: 100%;    
         text-align: center;
         padding: 0 12px;
-        color: $c_key;
-        font-size: $fz_4;
+        color: $c_key3;
+        font-size: $fz_3;
         font-weight: 500;
         &.on {
-            background-color: lighten($c_key, 50%) ;
+            background-color: $c_key3;
+            color: #fff;
+            font-weight: bold;
         }
         & + & {
-            border-left: 1px solid $c_key;
+            border-left: 1px solid $c_key3;
         }
     }
+}
+
+.btn_tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    border-radius: 14px;
+    border: 1px solid $c_key4;
+    color: $c_key4;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    min-width: 0;
+    padding: 0 8px;
+    &_txt {
+        
+        @include text-hidden-single;
+        width: 100%;
+        min-width: 0;
+    } 
 }

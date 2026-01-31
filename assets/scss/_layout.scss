@@ -1,8 +1,7 @@
 
-#wrap {
-    padding-top: 80px;
-}
+
 #container {
+    padding-top: 80px;
     padding-bottom: 30px;
 }
 .contents {
@@ -15,7 +14,7 @@
 
 .sec {
     & + & {
-        margin-top: 20px;
+        margin-top: 30px;
     }
 }
 .hd_company {

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TickleOn BLDG</title>
+
+     <!--[D] datepicker js&css-->
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+     <script>
+         $(function(){
+             // datepicker
+             $.datepicker.regional['ko'] = {
+                 closeText: '닫기',
+                 prevText: '이전달',
+                 nextText: '다음달',
+                 currentText: '오늘',
+                 monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                 monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                 dayNames: ['일','월','화','수','목','금','토'],
+                 dayNamesShort: ['일','월','화','수','목','금','토'],
+                 dayNamesMin: ['일','월','화','수','목','금','토'],
+                 weekHeader: 'Wk',
+                 dateFormat: 'yy-mm-dd(D)',
+                 firstDay: 0,
+                 isRTL: false,
+                 showMonthAfterYear: true,
+                 changeMonth: true,
+                 changeYear: true
+             };
+             $.datepicker.setDefaults($.datepicker.regional['ko']);
+             $(".datepicker").datepicker();
+         });
+         //오늘 선택
+         function set_today(target){
+             let date_set = $(target).parents('.date_set');
+             let datepicker = date_set.find('.datepicker'); 
+             datepicker.datepicker('setDate', 'today');
+         }
+     </script>
+     <!--//[D] datepicker js&css-->
+
+    <!--[D] 공통척용 js&css-->
+    <link rel="stylesheet" href="./assets/css/common.min.css">
+    <script type="text/javascript" src="./assets/js/common.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header" class="header">
+            <h1 class="logo"><a href=""><img src="../assets/images/logo.png" alt="TickleOn"></a> </h1>
+            <button type="button" class="btn_nav"></button>
+            <a href="" class="hd_user_btn">
+                <span class="user_name">이수호</span> 님
+            </a>     
+        </header>
+        <aside class="nav fixed">
+            <div class="nav_top">
+                <a href="" class="nav_top_logo"></a>
+                <button type="button" class="nav_close" aria-label="close nav"></button>
+            </div>
+            <nav class="nav_wrap">
+                <ul class="nav_list dep1">
+                    <!--[D] 메뉴 활성화 'on' class -->
+                    <li class="nav_dep1 on">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_monitoring"></i>
+                            <span class="txt">모니터링</span>
+                        </a>
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_facility"></i>
+                            <span class="txt">시설관리</span>
+                        </a>
+                    </li>   
+                    <li class="nav_dep1 ">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_emergency"></i>
+                            <span class="txt">긴급관리</span>
+                            <span class="tag_new">N</span>
+                        </a>    
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_statistic"></i>
+                            <span class="txt">통계</span>
+                        </a>     
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_cert"></i>
+                            <span class="txt">보고서</span>
+                        </a>
+                    </li>               
+                </ul>
+                <div class="pl20 pr20 mt30">
+                    <button type="button" class="f_btn ty_small _bg w100">로그아웃</button>
+                </div>
+                
+            </nav>
+        </aside>
+        <main id="container">
+            <div class="hd_company">
+                <div class="hd_company_item dep1">회사명</div>
+                <div class="hd_company_item select-box ty_mid ">
+                    <input type="text" class="select-input" value="서울지점" placeholder="매체를 선택해주세요" readonly>
+                    <div class="options">
+                        <ul>
+                            <li data-value="1" class="option">서울지점</li>
+                            <li data-value="2" class="option">경기지점</li>
+                            <li data-value="3" class="option">강원지점</li>
+                        </ul>
+                        <button type="button" class="f_btn ty_small _grey w100 mt10" onclick="event.stopPropagation();">지점 관리</button>
+                    </div>
+                </div>
+            </div>
+            <div class="contents">
+                <div class="sub_tit d_flex _gap10 ai_b">
+                    <h2 class="title1"><i class="tit_ico ty_facility"></i>시설점검요청</h2>
+                    <a href="" class="f_btn ty_mid _line2 w_60">목록</a>
+                </div>
+                <section class="sec">
+                    <div class="bd_box ty_small d_flex ty_col  _gapX32 _gapY10 bg_white">
+                        <div class="date_box d_flex fw_w _gap8 ai_c">
+                            <div class="f_switch shrink0">
+                                <button type="button" class="f_switch_btn on">전주</button>
+                                <button type="button" class="f_switch_btn">전월</button>
+                            </div>
+                            <div class="date_set d_flex _gap4  ai_c flex_1">
+                                <input type="text" class="f_input ty_mid datepicker no_ico flex1" value="2024-09-24(화)" readonly>
+                                ~
+                                <input type="text" class="f_input ty_mid datepicker no_ico flex1" value="2024-09-24(화)" readonly>
+                            </div>
+                        </div>
+                        <div class="select-box ty_mid2">
+                            <input type="text" class="select-input" placeholder="공간구분 선택" readonly="">
+                            <div class="options">
+                                <ul>
+                                    <li data-value="1" class="option">전체 시설</li>
+                                    <li data-value="2" class="option">정기작업시설</li>
+                                    <li data-value="3" class="option">고객이용시설</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button type="submit" class="f_btn ty_mid _og">검색</button>
+                    </div>
+                </section>
+                <section class="sec">
+                    <div class="d_flex ai_c jc_fe mb15">
+                        <div class="fz_2 fw_5">점검요청만 보기</div>
+                        <label class="f_toggle ty_mid ml4">
+                            <input type="checkbox" class="" onchange="f_alert_chk(this)" >
+                            <span class="slider">
+                                <div class="slider_txt false">꺼짐</div>
+                                <div class="slider_txt true">켜짐</div>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="work_card">
+                        <div class="work_card_top">
+                            <div class="work_card_tit"><b>B1</b> 주차장 A구역</div>
+                            <span class="work_card_status _red">점검요청</span>
+                        </div>
+                        <div class="work_card_cont">
+                            <div class="work_card_info">
+                                <dl>
+                                    <dt>담당자</dt>
+                                    <dd>정우희</dd>
+                                </dl>
+                                <dl>
+                                    <dt>요청일자</dt>
+                                    <dd>2026-01-07</dd>
+                                </dl>
+                                <dl>
+                                    <dt>작업자</dt>
+                                    <dd>-</dd>
+                                </dl>
+                                <dl>
+                                    <dt>확인일자</dt>
+                                    <dd>-</dd>
+                                </dl>
+                            </div>
+                            <div class="work_card_btn">
+                                <button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt"><i class="icon2 _red">!</i> 일반청소</span></button>
+                            </div>                 
+                        </div>
+                    </div>
+                    <div class="work_card">
+                        <div class="work_card_top">
+                            <div class="work_card_tit"><b>3층</b> 여자화장실</div>
+                            <span class="work_card_status _blue">확인완료</span>
+                        </div>
+                        <div class="work_card_cont">
+                            <div class="work_card_info">
+                                <dl>
+                                    <dt>담당자</dt>
+                                    <dd>정우희</dd>
+                                </dl>
+                                <dl>
+                                    <dt>요청일자</dt>
+                                    <dd>2026-01-07</dd>
+                                </dl>
+                                <dl>
+                                    <dt>작업자</dt>
+                                    <dd>윤지은</dd>
+                                </dl>
+                                <dl>
+                                    <dt>확인일자</dt>
+                                    <dd>2026-01-07</dd>
+                                </dl>
+                            </div>
+                            <div class="work_card_btn">
+                                <button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt">화장실청소(매일/3회) (10:00)</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <!--[D] 모달 활성화 'on' class-->
+        <div class="modal modal_detail" >
+            <div class="modal_inner">
+                <div class="modal_cont">
+                    <div class="modal_top">
+                        <div class="modal_tit">정기시설 수행작업 상세</div>
+                        <button type="button" class="modal_close_btn" onclick="close_modal(this)" aria-label="close modal"></button>
+                    </div>
+                    <div class="modal_contents">
+                        <table class="v_tbl">
+                            <colgroup>
+                                <col style="width: 100px;">
+                                <col>
+                            </colgroup>
+                            <tr>
+                                <th>수행작업</th>
+                                <td>(시설) PIT실 점검</td>
+                            </tr>
+                            <tr>
+                                <th>작업자</th>
+                                <td>김병찬</td>             
+                            </tr>
+                            <tr>
+                                <th>작업일시</th>
+                                <td>2026.01.16(금) 11:08</td>
+                            </tr>
+                        </table>  
+                        <div class="chk_set_wrap mt20">
+                            <div class="chk_set "> 
+                                <div class="chk_set_txt">배수시설은 정상인가?</div>
+                                <div class="btn_set ">
+                                    <label class="chk_btn">
+                                        <input type="radio" name="x1" class="inp_hidden" >
+                                        <span class="f_btn ty_mid">아니요</span>
+                                    </label>
+                                    <label class="chk_btn">
+                                        <input type="radio" name="x1" class="inp_hidden" checked>
+                                        <span class="f_btn ty_mid">예</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="chk_set "> 
+                                <div class="chk_set_txt">배관은 파손 없이 정상인가?</div>
+                                <div class="btn_set">
+                                    <label class="chk_btn">
+                                        <input type="radio" name="x2" class="inp_hidden" >
+                                        <span class="f_btn ty_mid">아니요</span>
+                                    </label>
+                                    <label class="chk_btn">
+                                        <input type="radio" name="x2" class="inp_hidden" checked>
+                                        <span class="f_btn ty_mid">예</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="chk_set "> 
+                                <div class="chk_set_txt">배수로에 물고임 증상은 없는가?</div>
+                                <div class="btn_set">
+                                    <label class="chk_btn">
+                                        <input type="radio" name="x3" class="inp_hidden" >
+                                        <span class="f_btn ty_mid">아니요</span>
+                                    </label>
+                                    <label class="chk_btn">
+                                        <input type="radio" name="x3" class="inp_hidden" checked>
+                                        <span class="f_btn ty_mid">예</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal_bot">
+                        <button type="button" class="f_btn ty_mid _line _ico _alert mr_auto">점검 요청 확인</button>
+                        <button type="button" class="f_btn ty_mid _line w_60 " onclick="close_modal(this)">닫기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

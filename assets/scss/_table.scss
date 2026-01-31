@@ -125,23 +125,39 @@
     }
 }
 
+.tbl_s {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    font-size: 12px;
+    th, td {
+        border-bottom: 1px solid $c_line; 
+        padding: 6px 4px;
+        line-height: 1.3;
+    }
+    thead th {
+        color: $c_font2;
+    }
+  
+}
+
 .v_tbl {
     th, td {
         border: 1px solid $c_line2;
         border-left: none;
         border-right: none;
-        height: 56px;
+        height: 50px;
     }
     th {
         background-color: $c_bg;
         text-align: right;
         vertical-align: middle;
-        padding: 8px 16px;
+        padding: 8px 14px;
         padding-left: 8px;
-        font-size: $fz_4;
+        font-size: $fz_3;
         font-weight: 500;
     }
     td {
-        padding: 8px 16px;
+        padding: 8px 14px;
     }
 }

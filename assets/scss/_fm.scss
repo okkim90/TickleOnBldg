@@ -1,0 +1,99 @@
+.fm_card {
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid $c_line;
+    @include dropShadow;
+    & + & {
+        margin-top: 15px;
+    }
+    &_top {
+        font-size: 16px;
+        position: relative;
+        padding: 15px;
+        cursor: pointer;
+        &::after {
+            content:'';
+            width: 10px;
+            height: 10px;
+            border-right: 3px solid #000;
+            border-bottom: 3px solid #000;
+            position: absolute;
+            right: 17.5px;
+            top: 50%;
+            margin-top: -7.5px;
+            transform: rotate(45deg);
+            .fm_card.on & { 
+                transform: rotate(-135deg);
+                margin-top: -2.5px;
+            }
+        }
+        
+    }
+    
+    &_cont {
+        display: none;
+        padding: 15px 0;
+        margin: 0 15px;
+        border-top: 1px solid $c_line2;
+        .fm_card.on & {
+            display: block;
+        }
+    }
+}
+
+.work_card {
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid $c_line;
+    padding: 15px;
+    @include dropShadow;
+    & + & {
+        margin-top: 15px;
+    }
+    &_top {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+    &_tit {
+        font-size: 16px;
+    }
+    &_status {
+        padding: 0 8px;
+        font-size: 12px;
+        line-height: 22px;
+        font-weight: 500;
+        color: #fff;
+        border-radius: 4px;
+        margin-left: auto;
+        &._blue {
+            background-color: color.scale($c_key3,$lightness:30%);
+        }
+        &._red {
+            background-color: $c_red;
+        }
+    }
+    &_cont {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid $c_line2;
+    }
+    &_info {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 13px;
+        gap: 6px;
+        dl {
+            flex: calc(50% - 3px);
+            display: flex;
+            gap: 10px;
+            dt {
+                font-weight: bold;
+            }
+            
+        }
+    }
+    &_btn {
+        margin-top: 10px;
+    }
+}

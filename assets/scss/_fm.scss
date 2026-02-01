@@ -1,11 +1,22 @@
+.card_wrap {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    .card_item {
+        flex: calc(50% - 8px);
+        @include mobile {
+            flex: 100%;
+        }
+    }
+}
+
+
 .fm_card {
     background-color: #fff;
     border-radius: 8px;
     border: 1px solid $c_line;
     @include dropShadow;
-    & + & {
-        margin-top: 15px;
-    }
+    
     &_top {
         font-size: 16px;
         position: relative;
@@ -42,17 +53,16 @@
 }
 
 .work_card {
+    display: block;
     background-color: #fff;
     border-radius: 8px;
     border: 1px solid $c_line;
     padding: 15px;
     @include dropShadow;
-    & + & {
-        margin-top: 15px;
-    }
+   
     &_top {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 4px;
     }
     &_tit {
@@ -61,7 +71,7 @@
     &_status {
         padding: 0 8px;
         font-size: 12px;
-        line-height: 22px;
+        line-height: 24px;
         font-weight: 500;
         color: #fff;
         border-radius: 4px;
@@ -96,4 +106,17 @@
     &_btn {
         margin-top: 10px;
     }
+    &_msg {
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 14px;
+        color: $c_key3;
+    }
+}
+
+.worker_list {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid $c_line;
+    border-bottom: 1px solid $c_line;
 }

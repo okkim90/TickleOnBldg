@@ -120,8 +120,9 @@
             <div class="contents">
                 <div class="sub_tit d_flex _gap10 ai_b">
                     <h2 class="title1"><i class="tit_ico ty_facility"></i>시설관리</h2>
-                    <a href="" class="f_btn ty_mid _og posR">
+                    <a href="" class="f_btn ty_mid _og posR ml_auto">
                         시설 점검요청내역
+                        <!--[D] new 아이콘 있는 경우-->
                         <span class="icon1 _red">N</span>
                     </a>
                 </div>
@@ -155,118 +156,119 @@
                 </section>
                 <section class="sec">
                     <p class="fz_2 fc_grey2 mb10">최근 7일 이내의 관리 항목만 표시되며, 상세 내용은 PC에서 확인 가능합니다.</p>
-                    <div class="fm_card on">
-                        <div class="fm_card_top"><b>B1</b> 주차장 A구역</div>
-                        <div class="fm_card_cont">
-                            <table class="tbl_s">
-                                <colgroup>
-                                    <col style="width: 80px;">
-                                    <col>
-                                    <col style="width: 60px;">
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th>최종 완료일시</th>
-                                        <th>수행작업</th>
-                                        <th>작업자</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td rowspan="2">2026-01-07 10:34</td>
-                                        <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt">일반청소(13:00)</span> </button></td>
-                                        <td>김현우</td>
-                                    </tr>
-                                    <tr>
-                                        <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt"><i class="icon2 _red">!</i> 안전점검</span></button></td>
-                                        <td>정우희</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2026-01-07 10:34</td>
-                                        <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt">Lorem, ipsum dolor sit amet consectetur adipisicing.</span></button></td>
-                                        <td>김현우</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <div class="card_wrap">
+                        <div class="card_item fm_card on">
+                            <div class="fm_card_top"><b>B1</b> 주차장 A구역</div>
+                            <div class="fm_card_cont">
+                                <table class="tbl_s">
+                                    <colgroup>
+                                        <col style="width: 80px;">
+                                        <col>
+                                        <col style="width: 60px;">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>최종 완료일시</th>
+                                            <th>수행작업</th>
+                                            <th>작업자</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="2">2026-01-07 10:34</td>
+                                            <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt">일반청소(13:00)</span> </button></td>
+                                            <td>김현우</td>
+                                        </tr>
+                                        <tr>
+                                            <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt"><i class="icon2 _red">!</i> 안전점검</span></button></td>
+                                            <td>정우희</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2026-01-07 10:34</td>
+                                            <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt">Lorem, ipsum dolor sit amet consectetur adipisicing.</span></button></td>
+                                            <td>김현우</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card_item fm_card on">
+                            <div class="fm_card_top"><b>B1</b> 주차장 A구역</div>
+                            <div class="fm_card_cont">
+                                <p class="fz_3 fc_grey2 taC">시설점검 내역이 없습니다.</p>
+                            </div>
+                        </div>
+                        <div class="card_item fm_card">
+                            <div class="fm_card_top"><b>B1</b> 주차장 A구역</div>
+                            <div class="fm_card_cont">
+                                <table class="tbl_s">
+                                    <colgroup>
+                                        <col style="width: 80px;">
+                                        <col>
+                                        <col style="width: 60px;">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>최종 완료일시</th>
+                                            <th>수행작업</th>
+                                            <th>작업자</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="2">2026-01-07 10:34</td>
+                                            <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt">일반청소(13:00)</span> </button></td>
+                                            <td>김현우</td>
+                                        </tr>
+                                        <tr>
+                                            <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt"><i class="icon2 _red">!</i> 안전점검</span></button></td>
+                                            <td>정우희</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2026-01-07 10:34</td>
+                                            <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt">Lorem, ipsum dolor sit amet consectetur adipisicing.</span></button></td>
+                                            <td>김현우</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card_item fm_card">
+                            <div class="fm_card_top"><b>B1</b> 주차장 A구역</div>
+                            <div class="fm_card_cont">
+                                <table class="tbl_s">
+                                    <colgroup>
+                                        <col style="width: 80px;">
+                                        <col>
+                                        <col style="width: 60px;">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>최종 완료일시</th>
+                                            <th>수행작업</th>
+                                            <th>작업자</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="2">2026-01-07 10:34</td>
+                                            <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt">일반청소(13:00)</span> </button></td>
+                                            <td>김현우</td>
+                                        </tr>
+                                        <tr>
+                                            <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt"><i class="icon2 _red">!</i> 안전점검</span></button></td>
+                                            <td>정우희</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2026-01-07 10:34</td>
+                                            <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt">Lorem, ipsum dolor sit amet consectetur adipisicing.</span></button></td>
+                                            <td>김현우</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                    <div class="fm_card on">
-                        <div class="fm_card_top"><b>B1</b> 주차장 A구역</div>
-                        <div class="fm_card_cont">
-                            <p class="fz_3 fc_grey2 taC">시설점검 내역이 없습니다.</p>
-                        </div>
-                    </div>
-                    <div class="fm_card">
-                        <div class="fm_card_top"><b>B1</b> 주차장 A구역</div>
-                        <div class="fm_card_cont">
-                            <table class="tbl_s">
-                                <colgroup>
-                                    <col style="width: 80px;">
-                                    <col>
-                                    <col style="width: 60px;">
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th>최종 완료일시</th>
-                                        <th>수행작업</th>
-                                        <th>작업자</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td rowspan="2">2026-01-07 10:34</td>
-                                        <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt">일반청소(13:00)</span> </button></td>
-                                        <td>김현우</td>
-                                    </tr>
-                                    <tr>
-                                        <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt"><i class="icon2 _red">!</i> 안전점검</span></button></td>
-                                        <td>정우희</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2026-01-07 10:34</td>
-                                        <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt">Lorem, ipsum dolor sit amet consectetur adipisicing.</span></button></td>
-                                        <td>김현우</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="fm_card">
-                        <div class="fm_card_top"><b>B1</b> 주차장 A구역</div>
-                        <div class="fm_card_cont">
-                            <table class="tbl_s">
-                                <colgroup>
-                                    <col style="width: 80px;">
-                                    <col>
-                                    <col style="width: 60px;">
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th>최종 완료일시</th>
-                                        <th>수행작업</th>
-                                        <th>작업자</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td rowspan="2">2026-01-07 10:34</td>
-                                        <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt">일반청소(13:00)</span> </button></td>
-                                        <td>김현우</td>
-                                    </tr>
-                                    <tr>
-                                        <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt"><i class="icon2 _red">!</i> 안전점검</span></button></td>
-                                        <td>정우희</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2026-01-07 10:34</td>
-                                        <td><button type="button" class="btn_tag w100" onclick="open_modal('modal_detail')"><span class="btn_tag_txt">Lorem, ipsum dolor sit amet consectetur adipisicing.</span></button></td>
-                                        <td>김현우</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
                     <script>
                         document.addEventListener('click', e => {
                             const top = e.target.closest('.fm_card_top');

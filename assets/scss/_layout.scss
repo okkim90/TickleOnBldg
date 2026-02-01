@@ -17,6 +17,17 @@
         margin-top: 30px;
     }
 }
+
+.sticky_bot {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px 0;
+    background-color: $c_bg2;
+    z-index: 99;
+}
 .hd_company {
     display: flex;
     column-gap: 15px;

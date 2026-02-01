@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TickleOn BLDG</title>
+
+     <!--[D] datepicker js&css-->
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+     <script>
+         $(function(){
+             // datepicker
+             $.datepicker.regional['ko'] = {
+                 closeText: '닫기',
+                 prevText: '이전달',
+                 nextText: '다음달',
+                 currentText: '오늘',
+                 monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                 monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                 dayNames: ['일','월','화','수','목','금','토'],
+                 dayNamesShort: ['일','월','화','수','목','금','토'],
+                 dayNamesMin: ['일','월','화','수','목','금','토'],
+                 weekHeader: 'Wk',
+                 dateFormat: 'yy-mm-dd(D)',
+                 firstDay: 0,
+                 isRTL: false,
+                 showMonthAfterYear: true,
+                 changeMonth: true,
+                 changeYear: true
+             };
+             $.datepicker.setDefaults($.datepicker.regional['ko']);
+             $(".datepicker").datepicker();
+         });
+         //오늘 선택
+         function set_today(target){
+             let date_set = $(target).parents('.date_set');
+             let datepicker = date_set.find('.datepicker'); 
+             datepicker.datepicker('setDate', 'today');
+         }
+     </script>
+     <!--//[D] datepicker js&css-->
+
+    <!--[D] 공통척용 js&css-->
+    <link rel="stylesheet" href="./assets/css/common.min.css">
+    <script type="text/javascript" src="./assets/js/common.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header" class="header">
+            <h1 class="logo"><a href=""><img src="../assets/images/logo.png" alt="TickleOn"></a> </h1>
+            <button type="button" class="btn_nav"></button>
+            <a href="" class="hd_user_btn">
+                <span class="user_name">이수호</span> 님
+            </a>     
+        </header>
+        <aside class="nav fixed">
+            <div class="nav_top">
+                <a href="" class="nav_top_logo"></a>
+                <button type="button" class="nav_close" aria-label="close nav"></button>
+            </div>
+            <nav class="nav_wrap">
+                <ul class="nav_list dep1">
+                    <!--[D] 메뉴 활성화 'on' class -->
+                    <li class="nav_dep1 ">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_monitoring"></i>
+                            <span class="txt">모니터링</span>
+                        </a>
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_facility"></i>
+                            <span class="txt">시설관리</span>
+                        </a>
+                    </li>   
+                    <li class="nav_dep1 on">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_emergency"></i>
+                            <span class="txt">긴급관리</span>
+                            <span class="tag_new">N</span>
+                        </a>    
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_statistic"></i>
+                            <span class="txt">통계</span>
+                        </a>     
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_cert"></i>
+                            <span class="txt">보고서</span>
+                        </a>
+                    </li>               
+                </ul>
+                <div class="pl20 pr20 mt30">
+                    <button type="button" class="f_btn ty_small _bg w100">로그아웃</button>
+                </div>
+                
+            </nav>
+        </aside>
+        <main id="container">
+            <div class="hd_company">
+                <div class="hd_company_item dep1">회사명</div>
+                <div class="hd_company_item select-box ty_mid ">
+                    <input type="text" class="select-input" value="서울지점" placeholder="매체를 선택해주세요" readonly>
+                    <div class="options">
+                        <ul>
+                            <li data-value="1" class="option">서울지점</li>
+                            <li data-value="2" class="option">경기지점</li>
+                            <li data-value="3" class="option">강원지점</li>
+                        </ul>
+                        <button type="button" class="f_btn ty_small _grey w100 mt10" onclick="event.stopPropagation();">지점 관리</button>
+                    </div>
+                </div>
+            </div>
+            <div class="contents">
+                <div class="sub_tit d_flex _gap10 ai_c">
+                    <h2 class="title1"><i class="tit_ico ty_emergency"></i>긴급관리 상세</h2>
+                    <span class="f_tag _red">대기중</span>
+                    <a href="" class="f_btn ty_mid _line ml_auto">목록</a>
+                </div>
+                <form action="">
+                    <section class="sec">
+                        <div class="d_flex _gap6 ai_c mb15">
+                            <h2 class="fz_6 lh_1_2">요청</h2>
+                            <span class="fz_4 fc_red">{1,029}분 경과</span>
+                            <span class="fz_2 self_bot ml_auto">2023.08.03(목) 14:00</span>
+                        </div>
+                        <div class="bd_box ty_small bg_white">
+                            <div class="form_set">
+                                <label class="form_set_tit">제목</label>
+                                <div class="input_wrap">
+                                    <input type="text" 
+                                    class="f_input ty_mid w100 has_count" 
+                                    placeholder="제목을 등록해주세요." 
+                                    max-length="50" 
+                                    value="오후 2시 외부미팅위한 청소 및 세팅 부탁드립니다.">
+                                    <span class="count">0/50</span>
+                                </div>
+                            </div>
+                            <div class="form_set">
+                                <label class="form_set_tit">시설</label>
+                                <div class="d_flex _gap10">
+                                    <div class="select-box ty_mid2 flex1 disabled">
+                                        <input type="text" class="select-input" placeholder="공간구분 선택" readonly="" value="정기작업시설" disabled>
+                                        <div class="options">
+                                            <ul>
+                                                <li data-value="1" class="option">전체 시설</li>
+                                                <li data-value="2" class="option">정기작업시설</li>
+                                                <li data-value="3" class="option">고객이용시설</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="select-box ty_mid2 flex1 disabled">
+                                        <input type="text" class="select-input" placeholder="공간 선택" readonly="" value="고객이용시설" disabled>
+                                        <div class="options">
+                                            <ul>
+                                                <li data-value="1" class="option">전체 시설</li>
+                                                <li data-value="2" class="option">정기작업시설</li>
+                                                <li data-value="3" class="option">고객이용시설</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form_set">
+                                <label class="form_set_tit">내용</label>
+                                <div class="ta_wrap">
+                                    <textarea name="" id="" class="f_ta">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius quidem totam, ut quibusdam accusamus consequatur. Corrupti iusto culpa consequatur distinctio.</textarea>
+                                    <span class="count">0/50</span>
+                                </div>
+                            </div>
+                            <div class="form_set">
+                                <div class="d_flex">
+                                    <label class="form_set_tit">요청자</label>
+                                    <span class="ml20">윤지은</span>
+                                </div> 
+                            </div>
+                            <div class="form_set">
+                                <label class="form_set_tit">알림 재발송</label>
+                                <div class="worker_list_wrap">
+                                    <div class="worker_list flex1 d_flex _gapY12 _gapX14 fw_w">
+                                        <label class="f_chk">
+                                            <input type="checkbox" checked>
+                                            <div class="f_chk_ico"></div>
+                                            <div class="f_chk_txt">작업자1</div>
+                                        </label>
+                                        <label class="f_chk">
+                                            <input type="checkbox" checked>
+                                            <div class="f_chk_ico"></div>
+                                            <div class="f_chk_txt">작업자1</div>
+                                        </label>
+                                        <label class="f_chk">
+                                            <input type="checkbox">
+                                            <div class="f_chk_ico"></div>
+                                            <div class="f_chk_txt">작업자1</div>
+                                        </label>
+                                        <label class="f_chk">
+                                            <input type="checkbox">
+                                            <div class="f_chk_ico"></div>
+                                            <div class="f_chk_txt">작업자1</div>
+                                        </label>
+                                        <label class="f_chk">
+                                            <input type="checkbox">
+                                            <div class="f_chk_ico"></div>
+                                            <div class="f_chk_txt">작업자1</div>
+                                        </label>
+                                        <label class="f_chk">
+                                            <input type="checkbox">
+                                            <div class="f_chk_ico"></div>
+                                            <div class="f_chk_txt">작업자1</div>
+                                        </label>
+                                    </div>
+                                    <div class="mt15 taR">
+                                        <button type="button" class="f_btn ty_small _grey ">선택 알림 재발송</button>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                            <div class="form_set">
+                                <label class="form_set_tit">사진 등록</label>
+                                <div class="img_upload_wrap">
+                                    <!--[D]이미지 등록 전-->
+                                    <label class="img_upload">
+                                        <input type="file" accept="image/*" hidden>
+                                        <i class="img_upload_ico" aria-hidden="true"></i>
+                                        <p class="fc_grey fz_3 mt6">사진을 첨부해주세요</p>
+                                    </label>
+                                    <!-- [D] 이미지 등록 후 : is_uploaded -->
+                                    <label class="img_upload is_uploaded">
+                                        <input type="file" accept="image/*" hidden>
+                                        <img src="https://picsum.photos/500/500" alt="등록된 이미지" class="img_preview">
+                                        <button type="button" class="del_img" aria-label="이미지 삭제"></button>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form_set">
+                                <label class="form_set_tit">수행</label>
+                                <div class="no_data">
+                                    <i class="no_data_ico"></i>
+                                    <p class="fz_5 mt16">수행기록이 없습니다.</p>
+                                    <p class="fz_3 fc_grey mt4">알림 재발송을 통해 <br> 작업자에게 수행요청을 보내주세요.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>   
+                    <div class="sticky_bot">
+                        <div class="d_flex _gap10 jc_fe">
+                            <button type="button" class="f_btn ty_mid _line w_60">삭제</button>
+                            <button type="submit" class="f_btn ty_mid _og w_80">등록</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <!--[D] 모달 활성화 'on' class-->
+        <div class="modal on" >
+            <div class="modal_inner">
+                <div class="modal_cont ty_xsmall">
+                    <div class="modal_top">
+                        <div class="modal_tit">긴급관리 등록 완료</div>
+                        <button type="button" class="modal_close_btn" onclick="close_modal(this)" aria-label="close modal"></button>
+                    </div>
+                    <div class="modal_contents ">
+                        <p class="fz_4">해당하는 작업자에게 메세지를 발송하였습니다.</p>
+                    </div>
+                    <div class="modal_bot">
+                        <button type="button" class="f_btn ty_mid _og w_80">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

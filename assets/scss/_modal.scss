@@ -38,6 +38,9 @@
         // &.ty_mid {
         //     width: 600px;
         // }
+        &.ty_xsmall {
+            max-width: 380px;
+        }
         &.ty_small {
             max-width: 500px;
         }
@@ -57,6 +60,9 @@
             align-items: center;
             justify-content: center;
         }
+        @include mobile {
+            border-radius: 12px;
+        }
     }
 
     &_top {
@@ -65,7 +71,7 @@
         padding-right: 60px;
         border-bottom: 1px solid $c_line;
         @include mobile { 
-            padding: 20px 20px 16px;
+            padding: 16px 20px 14px;
             padding-right: 50px;
         }
         .desc {
@@ -94,7 +100,7 @@
         flex-shrink: 0;
         align-self: flex-start;
         @include mobile {
-            top: 15px;
+            top: 10px;
             right: 10px;
         }
        
@@ -129,7 +135,7 @@
         padding: 16px 30px;
         border-top: 1px solid $c_line;
         @include mobile { 
-            padding: 16px 20px;
+            padding: 14px 20px;
         }
     }
 

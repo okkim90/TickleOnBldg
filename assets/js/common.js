@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     selectBoxes.forEach(e => {
       e.addEventListener('click', function() {
         
+        if (e.classList.contains('disabled')) return;
+
         if(e.classList.contains('on')){
           closeAllOptions();
         }else{

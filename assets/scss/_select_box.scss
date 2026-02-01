@@ -110,6 +110,13 @@
         }
     }
     
+    &.disabled {
+        pointer-events: none;
+        background-color: #f8f8f8;
+        .select-input {
+            background-color: #f8f8f8;
+        }
+    }
     .select-input {
         width: 100%;
         height: 100%;

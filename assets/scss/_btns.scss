@@ -247,6 +247,13 @@
                 font-weight: bold;
             }
         }
+        &._pdf {
+            &::before {
+                width: 24px;
+                height: 25px;
+                background-image: url(../images/file-pdf-regular-full.svg);
+            }
+        }
     }
     &._ico_b {
         column-gap: 4px;

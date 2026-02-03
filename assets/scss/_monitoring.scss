@@ -38,6 +38,9 @@
     align-items: center;
     gap: 10px;
     overflow-x: auto;
+    &.no_scroll {
+        overflow: hidden;
+    }
     .tab_btn {
         height: 40px;
         border-radius: 20px;
@@ -54,6 +57,8 @@
         }
     }
 }
+
+
 
 .monitoring_card {
     &_wrap {

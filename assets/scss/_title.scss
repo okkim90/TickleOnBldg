@@ -52,13 +52,17 @@
         &.ty_notice {
             background-image: url(../images/tit1_ico_notice.svg);
         }
+        &.ty_cert {
+            background-size: cover;
+            background-image: url(../images/icon_Cert_blue.svg);
+        }
     }
 }
 .title2 {
-    font-size: $fz_8;
-    //font-weight: bold;
+    font-size: $fz_7;
+    font-weight: bold;
     @include mobile {
-        font-size: $fz_7;
+        font-size: $fz_6;
     }
 }
 .title3 {

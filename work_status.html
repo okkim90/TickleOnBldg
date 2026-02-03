@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TickleOn BLDG</title>
+
+     <!--[D] datepicker js&css-->
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+     <script>
+         $(function(){
+             // datepicker
+             $.datepicker.regional['ko'] = {
+                 closeText: '닫기',
+                 prevText: '이전달',
+                 nextText: '다음달',
+                 currentText: '오늘',
+                 monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                 monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                 dayNames: ['일','월','화','수','목','금','토'],
+                 dayNamesShort: ['일','월','화','수','목','금','토'],
+                 dayNamesMin: ['일','월','화','수','목','금','토'],
+                 weekHeader: 'Wk',
+                 dateFormat: 'yy-mm-dd(D)',
+                 firstDay: 0,
+                 isRTL: false,
+                 showMonthAfterYear: true,
+                 changeMonth: true,
+                 changeYear: true
+             };
+             $.datepicker.setDefaults($.datepicker.regional['ko']);
+             $(".datepicker").datepicker();
+         });
+         //오늘 선택
+         function set_today(target){
+             let date_set = $(target).parents('.date_set');
+             let datepicker = date_set.find('.datepicker'); 
+             datepicker.datepicker('setDate', 'today');
+         }
+     </script>
+     <!--//[D] datepicker js&css-->
+
+
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!--[D] 공통척용 js&css-->
+    <link rel="stylesheet" href="./assets/css/common.min.css">
+    <script type="text/javascript" src="./assets/js/common.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header" class="header">
+            <h1 class="logo"><a href=""><img src="./assets/images/logo.png" alt="TickleOn"></a> </h1>
+            <button type="button" class="btn_nav"></button>
+            <a href="" class="hd_user_btn">
+                <span class="user_name">이수호</span> 님
+            </a>     
+        </header>
+        <aside class="nav fixed">
+            <div class="nav_top">
+                <a href="" class="nav_top_logo"></a>
+                <button type="button" class="nav_close" aria-label="close nav"></button>
+            </div>
+            <nav class="nav_wrap">
+                <ul class="nav_list dep1">
+                    <!--[D] 메뉴 활성화 'on' class -->
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_monitoring"></i>
+                            <span class="txt">모니터링</span>
+                        </a>
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_facility"></i>
+                            <span class="txt">시설관리</span>
+                        </a>
+                    </li>   
+                    <li class="nav_dep1 ">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_emergency"></i>
+                            <span class="txt">긴급관리</span>
+                            <span class="tag_new">N</span>
+                        </a>    
+                    </li>
+                    <li class="nav_dep1 on">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_statistic"></i>
+                            <span class="txt">통계</span>
+                        </a>     
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_cert"></i>
+                            <span class="txt">보고서</span>
+                        </a>
+                    </li>               
+                </ul>
+                <div class="pl20 pr20 mt30">
+                    <button type="button" class="f_btn ty_small _bg w100">로그아웃</button>
+                </div>
+                
+            </nav>
+        </aside>
+        <main id="container">
+            <div class="hd_company">
+                <div class="hd_company_item dep1">회사명</div>
+                <div class="hd_company_item select-box ty_mid ">
+                    <input type="text" class="select-input" value="서울지점" placeholder="매체를 선택해주세요" readonly>
+                    <div class="options">
+                        <ul>
+                            <li data-value="1" class="option">서울지점</li>
+                            <li data-value="2" class="option">경기지점</li>
+                            <li data-value="3" class="option">강원지점</li>
+                        </ul>
+                        <button type="button" class="f_btn ty_small _grey w100 mt10" onclick="event.stopPropagation();">지점 관리</button>
+                    </div>
+                </div>
+            </div>
+            <div class="contents">
+                <div class="sub_tit d_flex _gap10 ai_b">
+                    <h2 class="title1"><i class="tit_ico ty_statistics"></i>통계</h2>
+                </div>
+                <section class="sec">
+                    <div class="bd_box ty_small d_flex ty_col  _gapX32 _gapY10 bg_white">
+                        <div class="date_box d_flex fw_w _gap8 ai_c">
+                            <div class="f_switch shrink0">
+                                <button type="button" class="f_switch_btn on">전주</button>
+                                <button type="button" class="f_switch_btn">전월</button>
+                            </div>
+                            <div class="date_set d_flex _gap4  ai_c flex_1">
+                                <input type="text" class="f_input ty_mid datepicker no_ico flex1" value="2024-09-24(화)" readonly>
+                                ~
+                                <input type="text" class="f_input ty_mid datepicker no_ico flex1" value="2024-09-24(화)" readonly>
+                            </div>
+                        </div>
+                        <div class="select-box ty_mid2">
+                            <input type="text" class="select-input" placeholder="공간구분 선택" readonly="">
+                            <div class="options">
+                                <ul>
+                                    <li data-value="1" class="option">전체 시설</li>
+                                    <li data-value="2" class="option">정기작업시설</li>
+                                    <li data-value="3" class="option">고객이용시설</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button type="submit" class="f_btn ty_mid _og">검색</button>
+                    </div>
+                </section>
+                <section class="sec">
+                    <h2 class="title2 mb10">시설관리</h2>
+                    <div class="chart_box">
+                        <canvas id="chart"></canvas>
+                    </div>
+                    <script>
+                        const ctx = document.getElementById('chart');
+                        const labels = [
+                            '2026-01-07','2026-01-07','2026-01-07','2026-01-07','2026-01-07','2026-01-07','2026-01-07','2026-01-07'
+                        ];
+
+                        const totalData  = [37, 30, 40, 18, 10, 40, 22, 34];// 전체(회색)
+                        const actualData = [35, 25, 38, 10, 0, 35, 20, 30]; // 수행(파랑)
+
+                        new Chart(document.getElementById('chart'), {
+                            type: 'bar',
+                            data: {
+                            labels,
+                            datasets: [
+                                {
+                                label: '전체',
+                                data: totalData,
+                                backgroundColor: '#e2e2e2',
+                                borderRadius: 4,
+                                grouped: false,
+                                //barThickness: 18,
+                                order: 2 
+                                },
+                                {
+                                label: '수행',
+                                data: actualData,
+                                backgroundColor: '#0C59D8',
+                                borderRadius: 4,
+                                grouped: false,
+                                //barThickness: 12,
+                                order: 1 
+                                }
+                            ]
+                            },
+                            options: {
+                                maintainAspectRatio: false,
+                                scales: {
+                                    x: { stacked: false },
+                                    y: {
+                                        min: 0,
+                                        max: 40
+                                    }
+                                },
+                                plugins: {
+                                    legend: {
+                                        display: true,
+                                        position: 'top',
+                                        labels: {
+                                            usePointStyle: false, 
+                                            boxWidth: 30,         
+                                            boxHeight: 12          
+                                        }
+                                    },
+                                    tooltip: {
+                                        displayColors: false, 
+                                        callbacks: {
+                                            title: (items) => items[0].label,
+                                            label: (ctx) => {
+                                            const i = ctx.dataIndex;
+                                            return `수행: ${actualData[i]} / 전체: ${totalData[i]}`;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+                </section>
+                <section class="sec">
+                    <h2 class="title2 mb10">긴급관리</h2>
+                    <div class="d_flex _gap10">
+                        <div class="bg_box flex1">
+                            <h3 class="fc_font2 fz_3 mb8">정기작업시설</h3>
+                            <div class="d_flex ty_col _gapY4 fw_w fz_4">
+                                <b>전체 0건</b>
+                                <b>완료 0건 (0%)</b>
+                            </div>
+                        </div>
+                        <div class="bg_box flex1">
+                            <h3 class="fc_font2 fz_3 mb8">고객이용시설</h3>
+                            <div class="d_flex ty_col _gapY4 fw_w fz_4">
+                                <b>전체 100건</b>
+                                <b>완료 100건 (100%)</b>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="sec">
+                    <h2 class="title2 mb10">관리 상세내역</h2>
+                    <ul class="tab_list mb10">
+                        <li><button type="button" class="tab_btn on">시설관리</button></li>
+                        <li><button type="button" class="tab_btn">[긴급] 정기작업시설</button></li>
+                        <li><button type="button" class="tab_btn">[긴급] 고객이용시설</button></li>
+                    </ul>
+                    <div class="bg_box">
+                        <table class="tbl_s fz_2">
+                            <colgroup>
+                                <col style="width: 70px;">
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>수행상태</th>
+                                    <th>전체</th>
+                                    <th>수행</th>
+                                    <th>미수행</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01.07(수)</td>
+                                    <td>38</td>
+                                    <td class="fc_key3"><a href="" class="tdU">36</a></td>
+                                    <td class="fc_red">2</td>
+                                </tr>
+                                <tr>
+                                    <td>01.07(수)</td>
+                                    <td>38</td>
+                                    <td class="fc_key3"><a href="" class="tdU">36</a></td>
+                                    <td class="fc_red">2</td>
+                                </tr>
+                                <tr>
+                                    <td>01.07(수)</td>
+                                    <td>38</td>
+                                    <td class="fc_key3"><a href="" class="tdU">36</a></td>
+                                    <td class="fc_red">2</td>
+                                </tr>
+                                <tr>
+                                    <td>01.07(수)</td>
+                                    <td>38</td>
+                                    <td class="fc_key3"><a href="" class="tdU">36</a></td>
+                                    <td class="fc_red">2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

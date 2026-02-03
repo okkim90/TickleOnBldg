@@ -8,6 +8,11 @@
             flex: 100%;
         }
     }
+    &.ty_col {
+        .card_item { 
+            flex: 100%;
+        }
+    }
 }
 
 
@@ -49,6 +54,13 @@
         .fm_card.on & {
             display: block;
         }
+    }
+    &_txt {
+        font-size: $fz_4;
+        padding: 8px 10px;
+        border-radius: 6px;
+        background-color: $c_bg2;
+        margin-bottom: 10px;
     }
 }
 

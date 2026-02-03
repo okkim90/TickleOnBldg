@@ -130,6 +130,10 @@
     table-layout: fixed;
     text-align: center;
     font-size: 12px;
+
+    &.fz_2 {
+        font-size: 13px;
+    }
     th, td {
         border-bottom: 1px solid $c_line; 
         padding: 6px 4px;

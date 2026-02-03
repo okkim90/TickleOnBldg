@@ -1,0 +1,130 @@
+// ===== Image Swiper Modal =====
+.img_modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+  
+    &.is_open {
+      display: block;
+    }
+  
+    .img_modal_dim {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+    }
+  
+    .img_modal_inner {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px 30px;
+      
+      // Swiper 영역
+      .swiper {
+        width: 100%;
+        height: calc(100% - 100px);;
+      }
+  
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+          display: block;
+        }
+      }
+    }
+    .img_modal_header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      background-color: $c_key;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 40px;
+    }
+    .img_modal_title {
+      font-size: 16px;
+      text-align: center;
+      color: #fff;
+      justify-self: flex-end
+    }
+  
+    .img_modal_close {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      z-index: 2;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      
+      color: #fff;
+      font-size: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background-image: url(../images/ico_close.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+  
+    .img_modal_nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 30px;
+      height: 40px;
+      border-radius: 999px;
+      border: 0;
+      
+      color: #fff;
+      cursor: pointer;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 30px;
+      &.img_modal_prev {
+        left: 0;
+        background-image: url(../images/paging_prev_w.svg);
+      }
+  
+      &.img_modal_next {
+        right: 0;
+        background-image: url(../images/paging_next_w.svg);
+      }
+    }
+  
+    .img_modal_pager {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      font-size: 13px;
+  
+      .cur,
+      .total {
+        font-variant-numeric: tabular-nums; // 숫자 흔들림 방지(지원 브라우저에서만)
+      }
+    }
+  }
+  

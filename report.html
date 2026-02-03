@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TickleOn BLDG</title>
+
+     <!--[D] datepicker js&css-->
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+     <script>
+         $(function(){
+             // datepicker
+             $.datepicker.regional['ko'] = {
+                 closeText: '닫기',
+                 prevText: '이전달',
+                 nextText: '다음달',
+                 currentText: '오늘',
+                 monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                 monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                 dayNames: ['일','월','화','수','목','금','토'],
+                 dayNamesShort: ['일','월','화','수','목','금','토'],
+                 dayNamesMin: ['일','월','화','수','목','금','토'],
+                 weekHeader: 'Wk',
+                 dateFormat: 'yy-mm-dd(D)',
+                 firstDay: 0,
+                 isRTL: false,
+                 showMonthAfterYear: true,
+                 changeMonth: true,
+                 changeYear: true
+             };
+             $.datepicker.setDefaults($.datepicker.regional['ko']);
+             $(".datepicker").datepicker();
+         });
+         //어제 선택
+         function set_yesterday(target){
+             let date_set = $(target).parents('.date_set');
+             let datepicker = date_set.find('.datepicker'); 
+             datepicker.datepicker('setDate', '-1D');
+         }
+     </script>
+     <!--//[D] datepicker js&css-->
+
+    <!--[D] 공통척용 js&css-->
+    <link rel="stylesheet" href="./assets/css/common.min.css">
+    <script type="text/javascript" src="./assets/js/common.js"></script>
+
+    <!--[D]swier css-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+</head>
+<body>
+    <div id="wrap">
+        <header id="header" class="header">
+            <h1 class="logo"><a href=""><img src="./assets/images/logo.png" alt="TickleOn"></a> </h1>
+            <button type="button" class="btn_nav"></button>
+            <a href="" class="hd_user_btn">
+                <span class="user_name">이수호</span> 님
+            </a>     
+        </header>
+        <aside class="nav fixed">
+            <div class="nav_top">
+                <a href="" class="nav_top_logo"></a>
+                <button type="button" class="nav_close" aria-label="close nav"></button>
+            </div>
+            <nav class="nav_wrap">
+                <ul class="nav_list dep1">
+                    <!--[D] 메뉴 활성화 'on' class -->
+                    <li class="nav_dep1 ">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_monitoring"></i>
+                            <span class="txt">모니터링</span>
+                        </a>
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_facility"></i>
+                            <span class="txt">시설관리</span>
+                        </a>
+                    </li>   
+                    <li class="nav_dep1 ">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_emergency"></i>
+                            <span class="txt">긴급관리</span>
+                            <span class="tag_new">N</span>
+                        </a>    
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_statistic"></i>
+                            <span class="txt">통계</span>
+                        </a>     
+                    </li>
+                    <li class="nav_dep1 on">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_cert"></i>
+                            <span class="txt">보고서</span>
+                        </a>
+                    </li>               
+                </ul>
+                <div class="pl20 pr20 mt30">
+                    <button type="button" class="f_btn ty_small _bg w100">로그아웃</button>
+                </div>
+                
+            </nav>
+        </aside>
+        <!--[D] 일일수행업무보고서 : 'ty_report' class-->
+        <main id="container" class="ty_report">
+            <div class="hd_company">
+                <div class="hd_company_item dep1">회사명</div>
+                <div class="hd_company_item select-box ty_mid ">
+                    <input type="text" class="select-input" value="서울지점" placeholder="매체를 선택해주세요" readonly>
+                    <div class="options">
+                        <ul>
+                            <li data-value="1" class="option">서울지점</li>
+                            <li data-value="2" class="option">경기지점</li>
+                            <li data-value="3" class="option">강원지점</li>
+                        </ul>
+                        <button type="button" class="f_btn ty_small _grey w100 mt10" onclick="event.stopPropagation();">지점 관리</button>
+                    </div>
+                </div>
+            </div>
+            <div class="contents">
+                <div class="sub_tit">
+                    <h2 class="title1"><i class="tit_ico ty_cert"></i>일일 수행업무 보고서</h2>
+                </div>
+                <section class="sec">
+                    <div class="bd_box ty_small d_flex ty_col  _gapX32 _gapY10 bg_white">
+                        <div class="date_box d_flex _gap8 ai_c">
+                            <label class="w_80 shrink0">일자</label>
+                            <div class="date_set d_flex _gapX8 ai_c w100">
+                                <input type="text" class="f_input ty_mid datepicker" value="2026-01-05(월)" readonly="">
+                                <button type="button" class="f_btn ty_mid _blue2" onclick="set_yesterday(this)">어제</button>
+                            </div>
+                        </div>
+                        <div class="d_flex _gapX8 ai_c ">
+                            <label class="w_80 shrink0">공간구분</label>
+                            <div class="select-box ty_mid2 w100">
+                                <input type="text" class="select-input" placeholder="전체 시설" readonly="">
+                                <div class="options">
+                                    <ul>
+                                        <li data-value="1" class="option">전체 시설</li>
+                                        <li data-value="2" class="option">정기작업시설</li>
+                                        <li data-value="3" class="option">고객이용시설</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="f_btn ty_mid _og">검색</button>
+                    </div>
+                </section>
+                <section class="report_wrap">
+                    <section class="sec">
+                        <div class="d_flex jc_fe mb20">
+                            <button type="button" class="f_btn ty_mid _line _ico _pdf">일일보고서 다운로드</button>
+                        </div>
+                        <h2 class="report_tit mb20">일일 수행업무 보고서</h2>
+                        <div class="fc_font2 d_flex jc_sb mb10">
+                            <span>현장명: (주)티클-더퍼스트타워 평택</span>
+                            <span>2026.1.13</span>
+                        </div>
+                        <table class="report_tbl ">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">정기작업</th>
+                                    <th colspan="2">기타관리</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>수행/계획</th>
+                                    <td>18/38건</td>
+                                    <th>관리자 점검요청</th>
+                                    <td>0/0건</td>
+                                </tr>
+                                <tr>
+                                    <th>수행작업률</th>
+                                    <td>47.4%</td>
+                                    <th>긴급관리</th>
+                                    <td>0/0건</td>
+                                </tr>
+                                <tr>
+                                    <th>수시작업</th>
+                                    <td>0건</td>
+                                    <th>고객요청</th>
+                                    <td>0/0건</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section class="sec">
+                        <h3 class="report_tit2">정기작업시설 수행현황</h3>
+                        <ul class="tab_list mb15">
+                            <li><button type="button" class="tab_btn on">금일 수행작업</button></li>
+                            <li><button type="button" class="tab_btn">금일 미수행 작업</button></li>
+                            <li><button type="button" class="tab_btn">명일 수행예정 작업</button></li>
+                        </ul>
+                        <ul class="report_card_list">
+                            <li class="list_item">
+                                <div class="list_tit"><b>1F</b> 대회의실</div>
+                                <!-- [D] 활성화 : 'on' class -->
+                                <div class="card_item fm_card on">
+                                    <div class="fm_card_top">[미화] 대회의실 청소</div>
+                                    <div class="fm_card_cont">
+                                         <!--[D] img modal title : data-title="이미지 모달 제목"-->
+                                        <ul class="report_img_list" data-title="[미화] 대회의실 청소">
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/200/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/400/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/600/650" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/300" alt=""></li>
+                                            <li><img src="https://picsum.photos/400/400" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/200" alt=""></li>
+                                            <li><img src="https://picsum.photos/600/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/600" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/700" alt=""></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card_item fm_card">
+                                    <div class="fm_card_top">[미화] 대회의실 청소2</div>
+                                    <div class="fm_card_cont">
+                                         <!--[D] img modal title : data-title="이미지 모달 제목"-->
+                                        <ul class="report_img_list" data-title="[미화] 대회의실 청소2">
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list_item">
+                                <div class="list_tit"><b>5F</b> 기계실</div>
+                                <!-- [D] 활성화 : 'on' class -->
+                                <div class="card_item fm_card">
+                                    <div class="fm_card_top">[시설] 기계실 점검</div>
+                                    <div class="fm_card_cont">
+                                        <!--[D] img modal title : data-title="이미지 모달 제목"-->
+                                        <ul class="report_img_list" data-title="[시설] 기계실 점검">
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card_item fm_card">
+                                    <div class="fm_card_top">[시설] 기계실 점검2</div>
+                                    <div class="fm_card_cont">
+                                         <!--[D] img modal title : data-title="이미지 모달 제목"-->
+                                        <ul class="report_img_list" data-title="[시설] 기계실 점검2">
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list_item">
+                                <div class="list_tit"><b>옥상</b> 기계실</div>
+                                <!-- [D] 활성화 : 'on' class -->
+                                <div class="card_item fm_card">
+                                    <div class="fm_card_top">[시설] 시수도/도시가스 정압기 점검 </div>
+                                    <div class="fm_card_cont">
+                                         <!--[D] img modal title : data-title="이미지 모달 제목"-->
+                                        <ul class="report_img_list" data-title="[시설] 시수도/도시가스 정압기 점검">
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                            <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="sec">
+                        <h3 class="report_tit2">긴급관리 수행현황</h3>
+                        <div class="tab_list2 mb20">
+                            <button type="button" class="tab_btn on">정기작업시설</button>
+                            <button type="button" class="tab_btn ">고객이용시설</button>
+                        </div>
+                        <div class="card_item fm_card on">
+                            <div class="fm_card_top">긴급요청 이슈 제목</div>
+                            <div class="fm_card_cont">
+                                <div class="fm_card_txt">이슈 처리 내용 이슈 처리 내용 이슈 처리 내용 이슈 처리 내용 이슈 처리 내용 </div>
+                                 <!--[D] img modal title : data-title="이미지 모달 제목"-->
+                                <ul class="report_img_list" data-title="긴급요청 이슈 제목">
+                                    <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                    <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                    <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                    <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                    <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                    <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                    <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                    <li><img src="https://picsum.photos/500/500" alt=""></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card_item fm_card on">
+                            <div class="fm_card_top">긴급요청 이슈 제목</div>
+                            <div class="fm_card_cont">
+                                <p class="fz_3 fc_grey2 taC">요청된 긴급관리 내역이 없습니다.</p>
+                            </div>
+                        </div>
+                    </section>
+                </section>   
+            </div>
+        </main>     
+    </div>
+    <script>
+        document.addEventListener('click', e => {
+            const top = e.target.closest('.fm_card_top');
+            if (!top) return;
+        
+            const card = top.closest('.fm_card');
+            card.classList.toggle('on');
+        });
+    </script>
+
+    <!--[D] img swiper modal-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1) 모달 마크업이 없으면 생성
+            let modal = document.querySelector('.img_modal');
+            if (!modal) {
+              modal = document.createElement('div');
+              modal.className = 'img_modal';
+              modal.innerHTML = `
+                <div class="img_modal_dim" data-close="1"></div>
+                
+                <div class="img_modal_inner" role="dialog" aria-modal="true" aria-label="이미지 보기">
+                    <div class="img_modal_header">
+                        <strong class="img_modal_title"></strong>
+                        <button type="button" class="img_modal_close" data-close="1" aria-label="닫기"></button>
+                    </div>
+                    <button type="button" class="img_modal_nav img_modal_prev" aria-label="이전"></button>
+                    <button type="button" class="img_modal_nav img_modal_next" aria-label="다음"></button>
+            
+                    <div class="img_modal_pager" aria-live="polite"><span class="cur">1</span> / <span class="total">1</span></div>
+             
+                    <div class="swiper img_modal_swiper">
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                </div>
+              `;
+              document.body.appendChild(modal);
+            }
+          
+            const wrapper = modal.querySelector('.swiper-wrapper');
+            const pagerCur = modal.querySelector('.img_modal_pager .cur');
+            const pagerTotal = modal.querySelector('.img_modal_pager .total');
+            const btnPrev = modal.querySelector('.img_modal_prev');
+            const btnNext = modal.querySelector('.img_modal_next');
+            const modalTitle = modal.querySelector('.img_modal_title');
+          
+            let swiper = null;
+          
+            // 유틸: 모달 열기/닫기
+            const openModal = () => {
+              modal.classList.add('is_open');
+              document.documentElement.style.overflow = 'hidden';
+            };
+          
+            const closeModal = () => {
+              modal.classList.remove('is_open');
+              document.documentElement.style.overflow = '';
+              if (swiper) {
+                swiper.destroy(true, true);
+                swiper = null;
+              }
+              wrapper.innerHTML = '';
+            };
+          
+            // 2) “여러 리스트”를 이벤트 위임으로 한 번에 처리
+            document.addEventListener('click', (e) => {
+              const imgEl = e.target.closest('.report_img_list img');
+              if (!imgEl) return;
+          
+              const list = imgEl.closest('.report_img_list');
+              if (!list) return;
+
+              const title = list?.dataset?.title || '이미지 보기';
+              modalTitle.textContent = title;
+          
+              // 해당 리스트의 이미지들만 모달에 넣기
+              const imgs = Array.from(list.querySelectorAll('img'));
+              const startIndex = imgs.indexOf(imgEl);
+          
+              // 슬라이드 구성
+              wrapper.innerHTML = imgs.map((img) => {
+                const src = img.getAttribute('src') || '';
+                const alt = img.getAttribute('alt') || '';
+                return `
+                  <div class="swiper-slide">
+                    <img src="${src}" alt="${alt}">
+                  </div>
+                `;
+              }).join('');
+          
+              // 총 개수 표시
+              pagerTotal.textContent = String(imgs.length);
+          
+              // Swiper 초기화
+              swiper = new Swiper('.img_modal_swiper', {
+                initialSlide: Math.max(0, startIndex),
+                speed: 250,
+                loop: true,
+                navigation: {
+                  prevEl: btnPrev,
+                  nextEl: btnNext,
+                },
+                on: {
+                  init(sw) {
+                    pagerCur.textContent = String(sw.realIndex + 1);
+                  },
+                  slideChange(sw) {
+                    pagerCur.textContent = String(sw.realIndex + 1);
+                  }
+                }
+              });
+          
+              openModal();
+            });
+          
+            // 3) 닫기(딤/닫기버튼)
+            modal.addEventListener('click', (e) => {
+              if (e.target && e.target.dataset && e.target.dataset.close) closeModal();
+            });
+          
+            // 4) ESC로 닫기
+            document.addEventListener('keydown', (e) => {
+              if (e.key === 'Escape' && modal.classList.contains('is_open')) {
+                closeModal();
+              }
+            });
+          });
+          
+    </script>
+</body>
+</html>

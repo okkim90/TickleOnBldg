@@ -120,15 +120,25 @@
         //max-height: 108px;
 
         .work_item {
-            display: block;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
             
-            padding: 0 10px;
+            max-width: 100%;
+            padding: 0 8px;
             font-size: 12px;
             line-height: 2;
             border-radius: 4px;
-            @include text-hidden-single;
+            
             background-color: $c_bg;
             border: 1px solid $c_line;
+            
+            .txt {
+                @include text-hidden-single;
+                min-width: 0;
+                order: 2;
+            }
+
             
 
             &._complete {
@@ -137,6 +147,34 @@
             &._additional {
                 background-color: rgb(255, 252, 186)
             }
+            &._alert {
+                &::before {
+                    content:'!';
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    font-size: 11px;
+                    font-weight: 500;
+                    background-color: $c_red2;
+                    color: #fff;
+                    line-height: 14px;
+                    order: 0;
+                }
+            }
+            &._img {
+                &::after {
+                    content: '';
+                    flex-shrink: 0;
+                    width: 18px;
+                    height: 18px;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: contain;
+                    background-image: url(../images/image-solid-full.svg);
+                    order: 1;
+                }
+            }
+            
         }
     }
 }

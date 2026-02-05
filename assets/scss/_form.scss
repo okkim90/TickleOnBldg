@@ -468,7 +468,7 @@
         position: absolute; 
         white-space: nowrap; 
         &:checked ~ .f_chk_ico {
-            background-color: $c_font
+            background-color: $c_key3
             
         }
     }
@@ -490,7 +490,76 @@
         font-size: 14px;
         //font-weight: 500;
         flex: 1;
-        @include text-hidden-single
+        //@include text-hidden-single
+    }
+}
+
+
+.f_radio {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    z-index: 2;
+    &.vaT {
+        vertical-align: top;
+    }
+
+
+    input[type="radio"] {
+        &:checked ~ .f_radio_ico {
+            border-color: $c_key3;
+            &::after {
+                background-color: $c_key3;
+            }
+        }
+        // &:checked ~ .f_radio_txt {
+        //     color: $c_key3;
+        // }
+    }
+    
+    input[type="radio"] {
+        border: 0; 
+        clip: rect(0 0 0 0); 
+        clip-path: inset(50%); 
+        width: 1px; 
+        height: 1px; 
+        margin: -1px; 
+        overflow: hidden; 
+        padding: 0; 
+        position: absolute; 
+        white-space: nowrap; 
+        
+    }
+    &_ico {
+        width: 20px;
+        height: 20px;
+        align-self: flex-start;
+        border-radius: 50%;
+        background-color: #fff;
+        border: 1px solid $c_grey;
+        box-sizing: border-box;
+        margin-right: 8px;
+        position: relative;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border-radius: 50px;
+            
+        }
+    }
+    &_txt {
+        font-size: 14px;
+        //font-weight: 500;
+        flex: 1;
+        //@include text-hidden-single
     }
 }
 
@@ -746,7 +815,7 @@
 }
 
 .chk_set {
-    padding: 16px;
+    padding: 14px;
     border-radius: 8px;
     background-color: #fff;
     display: flex;
@@ -754,14 +823,15 @@
     align-items: center;
     flex-wrap: wrap;
     border: 1px solid $c_line;
+    box-shadow: 0 2px 4px rgba(#000, .08);
 
     &_wrap {
         display: flex;
         flex-direction: column;
         gap: 8px;
-        padding: 10px;
-        border-radius: 10px;
-        background-color: $c_bg;
+        // padding: 10px;
+        // border-radius: 10px;
+        // background-color: $c_bg;
     }
 
     //@include dropShadow;
@@ -769,7 +839,7 @@
 
     &_txt {
         font-size: 15px;
-        color: $c_grey2;
+        color: $c_font;
         font-weight: 600;
     }
     .btn_set {

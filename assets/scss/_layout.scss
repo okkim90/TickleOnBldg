@@ -105,3 +105,83 @@
     border-radius: 8px;
     background-color: #fff;
 }
+
+
+
+.detail_wrap {
+    margin: 0 -30px;
+    padding: 30px ;
+    background-color: $c_bg;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include mobile {
+        margin: 0 -20px;
+        padding: 20px;
+        margin-top: 20px;
+        padding: 20px;
+        gap: 16px;
+    }
+}
+
+.detail_sec {
+    box-shadow: 0 2px 4px rgba(#000, .08);
+    border-radius: 8px;
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid $c_line;
+    
+    &.ty_line {
+        box-shadow: none;
+        border: 1px solid $c_line;
+    }
+    .sticker {
+        position: absolute;
+        font-size: 12px;
+        padding: 0 8px;
+        border-radius: 8px 0 8px 0;
+        left: 0;
+        top: 0;
+        &._black {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+    &_tit {
+        font-size: 15px;
+        border-bottom: 1px solid $c_line;
+        padding: 14px 14px 10px;
+        font-weight: 600;
+    }
+    &_cont {
+        padding: 14px;
+    }
+    &_info {
+        padding: 14px;
+        border-radius: 0 0 8px 8px;
+        &._red {
+            background-color: $c_red3;
+            color: $c_red2;
+        }
+        &._yellow {
+            background-color: $c_yellow2;
+            color: $c_yellow;
+        }
+        
+    }
+}
+.chk_list {
+    &_item {
+        & + & {
+            margin-top: 8px;
+        }
+       .f_chk, .f_radio {
+            display: flex;
+            border: 1px solid $c_line;
+            border-radius: 8px;
+            padding: 10px 12px;
+       }
+    }
+}
